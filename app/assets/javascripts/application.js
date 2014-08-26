@@ -15,5 +15,21 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('body').append("<h1>hello world, I'm from only javascript!</h1>");
+  var $body = $('body');
+  var $form = $('<form></form>');
+//  var $flash = $('<div class="flash"></div>');
+  $body.append("<h1>Todoly</h1>");
+  $body.append($form);
+  $form.append("<input type=text name=todoItem>");
+  $form.append("<input id=submit type=submit value='Create Todo'>");
+//
+  $('#submit').click(function(e){
+//      $flash.append(<p>Boom!</p>);
+
+      e.preventDefault();
+
+
+      var toAdd = $('input[name=todoItem]').val();
+      $body.append("<li>" + toAdd + "</li>");
+  });
 });
